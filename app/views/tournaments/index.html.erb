@@ -6,6 +6,7 @@
         <p class="fs-4 fw-bold"><%=tournament.location %></p>
         <p class="fw-bold"><%= tournament.start_time.strftime("%H:%M %d/%m/%Y") %></p>
         <p class="fw-bold"><%=tournament.end_time.strftime("%H:%M %d/%m/%Y") %></p>
+        <%= link_to "View Tournament", tournament_path(tournament) %>
       </div>
     </div>
   <% end %>

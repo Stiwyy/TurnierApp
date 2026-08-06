@@ -1,0 +1,9 @@
+<h1><%=@tournament.name %></h1>
+
+<div>
+  <%= link_to "Teams", tournament_teams_path(@tournament) %>
+</div>
+
+<div>
+  <%= link_to "Games", tournament_games_path(@tournament) %>
+</div>

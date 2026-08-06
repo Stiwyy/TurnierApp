@@ -17,10 +17,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_06_132903) do
     t.string "loser"
     t.integer "scoreTeamA"
     t.integer "scoreTeamB"
-    t.integer "tournaments_id", null: false
+    t.integer "tournament_id", null: false
     t.datetime "updated_at", null: false
     t.string "winner"
-    t.index ["tournaments_id"], name: "index_games_on_tournaments_id"
+    t.index ["tournament_id"], name: "index_games_on_tournament_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -68,7 +68,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_06_132903) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "games", "tournaments", column: "tournaments_id"
+  add_foreign_key "games", "tournaments"
   add_foreign_key "players", "teams"
   add_foreign_key "team_games", "games"
   add_foreign_key "team_games", "teams"
