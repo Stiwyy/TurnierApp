@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   get "/", to: "main#index"
+  resources :tournaments, only: [:index, :show]
+    resources :teams, only: [:index]
+    resources :games, only: [:index]
 end

@@ -1,0 +1,12 @@
+<div class="d-flex align-items-center flex-column">
+  <% @tournaments.each do |tournament| %>
+    <div class="card mb-3" style="width: 80%">
+      <h5 class="card-header"><%=tournament.name %></h5>
+      <div class="card-body">
+        <p class="fs-4 fw-bold"><%=tournament.location %></p>
+        <p class="fw-bold"><%= tournament.start_time.strftime("%H:%M %d/%m/%Y") %></p>
+        <p class="fw-bold"><%=tournament.end_time.strftime("%H:%M %d/%m/%Y") %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
