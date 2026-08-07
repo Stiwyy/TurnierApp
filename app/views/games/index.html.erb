@@ -1,5 +1,9 @@
 <h1><%= @tournament.name %> Games</h1>
 
+<div class="d-flex justify-content-end">
+  <%= link_to "create Game", new_tournament_game_path, :class => "btn btn-primary" %>
+</div>
+
 <table class="table table-striped">
   <thead>
   <tr>
