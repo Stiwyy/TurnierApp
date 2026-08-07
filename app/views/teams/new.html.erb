@@ -1,0 +1,23 @@
+<%= form_with model: [@tournament, @team] do |form| %>
+  <%= render "shared/form_errors", form: form %>
+
+  <div class="mb-4">
+    <%= form.label :name, "Team Name", class: "form-label fw-semibold" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :tournament_ids, "Tournaments", class: "form-label fw-semibold d-block" %>
+
+    <%= form.collection_check_boxes :tournament_ids, Tournament.all, :id, :name do |b| %>
+      <div class="form-check">
+        <%= b.check_box class: "form-check-input" %>
+        <%= b.label class: "form-check-label" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="d-grid mt-4">
+    <%= form.submit "Create Team", class: "btn btn-primary" %>
+  </div>
+<% end %>

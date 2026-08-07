@@ -1,5 +1,7 @@
 <h1><%= @tournament.name %> Teams</h1>
-
+<div class="d-flex justify-content-end">
+  <%= link_to "create Team", new_tournament_team_path, :class => "btn btn-primary" %>
+</div>
 <% @teams.each do |team| %>
   <div>
     <%= link_to team.name, tournament_team_path(@tournament, team) %>

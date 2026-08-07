@@ -14,13 +14,23 @@ class TeamsController < ApplicationController
   def new
     @tournament = Tournament.find(params[:tournament_id])
     @team = @tournament.teams.new
+    @team.players.build
   end
 
   def create
+    @tournament = Tournament.find(params[:tournament_id])
+    @team = Team.new(team_params)
 
+    if @team.save
+      redirect_to tournament_team_path(@tournament, @team)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
+
   private
-  def tournament_params
-    params.require(:team).permit(:name, :location, :start_time, :end_time)
+
+  def team_params
+    params.require(:team).permit(:name, tournament_ids: [])
   end
 end
