@@ -2,8 +2,12 @@
 
 class TeamsController < ApplicationController
   def index
-    @tournaments = Tournament.find(params[:tournament_id])
-    @teams = @tournaments.teams
+    @tournament = Tournament.find(params[:tournament_id])
+    @teams = @tournament.teams
   end
 
+  def show
+    @tournament = Tournament.find(params[:tournament_id])
+    @team = @tournament.teams.find(params[:id])
+  end
 end

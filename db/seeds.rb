@@ -68,12 +68,12 @@ end
 teams.each_slice(2) do |team_a, team_b|
   next unless team_b
 
-  score_a = rand(0..3)
-  score_b = rand(0..3)
+  score_a = rand(0..25)
+  score_b = rand(0..25)
 
-  until (score_a == 3 || score_b == 3) && score_a != score_b
-    score_a = rand(0..3)
-    score_b = rand(0..3)
+  until (score_a == 25 || score_b == 25) && score_a != score_b
+    score_a = rand(0..25)
+    score_b = rand(0..25)
   end
 
   game = Game.create!(

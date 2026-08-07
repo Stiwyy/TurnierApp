@@ -1,0 +1,51 @@
+<h1><%= @team.name %></h1>
+
+<h3>Players</h3>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Date of Birth</th>
+    <th>Position</th>
+    <th>Number</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @team.players.each do |player| %>
+    <tr>
+      <td><%= player.name %></td>
+      <td><%= player.surname %></td>
+      <td><%= player.date_of_birth %></td>
+      <td><%= player.position %></td>
+      <td><%= player.number %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<h3>Games</h3>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Winner</th>
+    <th>Loser</th>
+    <th>Score</th>
+    <th>Duration</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @team.games.each do |game| %>
+    <tr>
+      <td><%= game.winner %></td>
+      <td><%= game.loser %></td>
+      <td><%= "#{game.scoreTeamA} - #{game.scoreTeamB}" %></td>
+      <td><%= "#{game.duration} min" %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

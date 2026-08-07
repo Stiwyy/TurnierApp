@@ -1,0 +1,23 @@
+<h1><%= @tournament.name %> Games</h1>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Winner</th>
+    <th>Loser</th>
+    <th>Score</th>
+    <th>Duration</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @tournament.games.each do |game| %>
+    <tr>
+      <td><%= game.winner %></td>
+      <td><%= game.loser %></td>
+      <td><%= "#{game.scoreTeamA} - #{game.scoreTeamB}" %></td>
+      <td><%= "#{game.duration} min" %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

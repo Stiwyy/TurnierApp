@@ -2,8 +2,8 @@
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="/">Home</a>
-        <a class="nav-link" href="/tournaments">Tournaments</a>
+        <%= link_to "Home", root_path, class: "nav-link active" %>
+        <%= link_to "Tournaments", tournaments_path, class: "nav-link" %>
       </div>
     </div>
   </div>
