@@ -5,9 +5,8 @@ Rails.application.routes.draw do
 
   resources :tournaments, only: [:index, :show, :new, :create] do
     resources :teams, only: [:index, :show, :new, :create] do
-      resources :players, only: [:new, :create] do
+      resources :players, only: [:new, :create]
     end
-    resources :games, only: [:index, :new, :create]
-  end
+      resources :games, only: [:index, :new, :create]
   end
 end

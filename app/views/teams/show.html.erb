@@ -1,6 +1,9 @@
 <h1><%= @team.name %></h1>
 
 <h3>Players</h3>
+<div class="d-flex justify-content-end">
+  <%= link_to "New Player", new_tournament_team_player_path(team_id: @team.id), :class => "btn btn-primary" %>
+</div>
 
 <table class="table table-striped">
   <thead>

@@ -1,0 +1,48 @@
+<%= form_with model: [@tournament, @team, @player] do |form| %>
+  <%= render "shared/form_errors", form: form %>
+  <div class="card mb-3 player-fields">
+    <div class="card-body">
+
+      <div class="row g-3">
+
+        <div class="col-md-3">
+          <%= form.label :name, "First Name", class: "form-label" %>
+          <%= form.text_field :name, class: "form-control" %>
+        </div>
+
+        <div class="col-md-3">
+          <%= form.label :surname, class: "form-label" %>
+          <%= form.text_field :surname, class: "form-control" %>
+        </div>
+
+        <div class="col-md-2">
+          <%= form.label :number, class: "form-label" %>
+          <%= form.number_field :number, class: "form-control" %>
+        </div>
+
+        <div class="col-md-2">
+          <%= form.label :position, class: "form-label" %>
+          <%= form.select :position,
+                                 [
+                                   "Setter",
+                                   "Outside Hitter",
+                                   "Opposite",
+                                   "Middle Blocker",
+                                   "Libero"
+                                 ],
+                                 { include_blank: "Select..." },
+                                 class: "form-select" %>
+        </div>
+
+        <div class="col-md-2">
+          <%= form.label :date_of_birth, class: "form-label" %>
+          <%= form.date_field :date_of_birth, class: "form-control" %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="d-grid mt-4">
+    <%= form.submit "Create Team", class: "btn btn-primary" %>
+  </div>
+<% end %>
