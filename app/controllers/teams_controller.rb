@@ -10,4 +10,17 @@ class TeamsController < ApplicationController
     @tournament = Tournament.find(params[:tournament_id])
     @team = @tournament.teams.find(params[:id])
   end
+
+  def new
+    @tournament = Tournament.find(params[:tournament_id])
+    @team = @tournament.teams.new
+  end
+
+  def create
+
+  end
+  private
+  def tournament_params
+    params.require(:team).permit(:name, :location, :start_time, :end_time)
+  end
 end

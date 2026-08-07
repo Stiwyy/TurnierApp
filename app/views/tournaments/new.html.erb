@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h2 class="card-title mb-4">Create Tournament</h2>
+
+          <%= form_with model: @tournament do |form| %>
+            <%= render "shared/form_errors", form: form %>
+
+            <div class="mb-3">
+              <%= form.label :tournament_name, class: "form-label fw-semibold" %>
+              <%= form.text_field :name, class: "form-control" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :tournament_location, class: "form-label fw-semibold" %>
+              <%= form.text_field :location, class: "form-control" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :tournament_start_time, class: "form-label fw-semibold" %>
+              <%= form.datetime_select :start_time %>
+            </div>
+
+            <div class="mb-4">
+              <%= form.label :tournament_end_time, class: "form-label fw-semibold" %>
+              <%= form.datetime_select :end_time %>
+            </div>
+
+            <div class="d-grid">
+              <%= form.button "Create Tournament", class: "btn btn-primary" %>
+            </div>
+
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
