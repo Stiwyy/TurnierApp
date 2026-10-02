@@ -52,6 +52,4 @@ class GamesController < ApplicationController
       :duration
     )
   end
-
-
 end

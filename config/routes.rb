@@ -3,10 +3,10 @@ Rails.application.routes.draw do
 
   get "up" => "rails/health#show", as: :rails_health_check
 
-  resources :tournaments, only: [:index, :show, :new, :create] do
-    resources :teams, only: [:index, :show, :new, :create] do
-      resources :players, only: [:new, :create]
+  resources :tournaments, only: [ :index, :show, :new, :create ] do
+    resources :teams, only: [ :index, :show, :new, :create ] do
+      resources :players, only: [ :new, :create ]
     end
-      resources :games, only: [:index, :new, :create]
+      resources :games, only: [ :index, :new, :create ]
   end
 end
