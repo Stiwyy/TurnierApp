@@ -1,0 +1,52 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h2 class="card-title mb-4">Create Games</h2>
+          <%= form_with model: [@tournament, @game] do |form| %>
+            <%= render "shared/form_errors", form: form %>
+
+            <div class="mb-3">
+              <%= form.label :team_a_id, "Team A" %>
+              <%= form.collection_select :team_a_id,
+                                         @tournament.teams,
+                                         :id,
+                                         :name,
+                                         {},
+                                         class: "form-select" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :team_b_id, "Team B" %>
+              <%= form.collection_select :team_b_id,
+                                         @tournament.teams,
+                                         :id,
+                                         :name,
+                                         {},
+                                         class: "form-select" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :scoreTeamA %>
+              <%= form.number_field :scoreTeamA, class: "form-control" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :scoreTeamB %>
+              <%= form.number_field :scoreTeamB, class: "form-control" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :duration %>
+              <%= form.number_field :duration, step: 0.1, class: "form-control" %>
+            </div>
+
+            <%= form.submit "Create Game", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
