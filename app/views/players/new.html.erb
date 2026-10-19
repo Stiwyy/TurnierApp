@@ -11,13 +11,13 @@
           <div class="row g-3">
 
             <div class="col-md-6">
-              <%= form.label :name, "First Name", class: "form-label" %>
-              <%= form.text_field :name, class: "form-control" %>
+              <%= form.label :first_name, "First Name", class: "form-label" %>
+              <%= form.text_field :first_name, class: "form-control" %>
             </div>
 
             <div class="col-md-6">
-              <%= form.label :surname, class: "form-label" %>
-              <%= form.text_field :surname, class: "form-control" %>
+              <%= form.label :last_name, class: "form-label" %>
+              <%= form.text_field :last_name, class: "form-control" %>
             </div>
 
             <div class="col-md-4">
@@ -28,15 +28,15 @@
             <div class="col-md-4">
               <%= form.label :position, class: "form-label" %>
               <%= form.select :position,
-                              [
-                                "Setter",
-                                "Outside Hitter",
-                                "Opposite",
-                                "Middle Blocker",
-                                "Libero"
-                              ],
-                              { include_blank: "Select..." },
-                              class: "form-select" %>
+                          [
+                            "Setter",
+                            "Outside Hitter",
+                            "Opposite",
+                            "Middle Blocker",
+                            "Libero",
+                          ],
+                          { include_blank: "Select..." },
+                          class: "form-select" %>
             </div>
 
             <div class="col-md-4">

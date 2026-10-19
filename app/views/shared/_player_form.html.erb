@@ -6,13 +6,13 @@
         <div class="row g-3">
 
           <div class="col-md-3">
-            <%= player_form.label :name, "First Name", class: "form-label" %>
-            <%= player_form.text_field :name, class: "form-control" %>
+            <%= player_form.label :first_name, "First Name", class: "form-label" %>
+            <%= player_form.text_field :first_name, class: "form-control" %>
           </div>
 
           <div class="col-md-3">
-            <%= player_form.label :surname, class: "form-label" %>
-            <%= player_form.text_field :surname, class: "form-control" %>
+            <%= player_form.label :last_name, class: "form-label" %>
+            <%= player_form.text_field :last_name, class: "form-control" %>
           </div>
 
           <div class="col-md-2">
@@ -23,15 +23,15 @@
           <div class="col-md-2">
             <%= player_form.label :position, class: "form-label" %>
             <%= player_form.select :position,
-                                   [
-                                     "Setter",
-                                     "Outside Hitter",
-                                     "Opposite",
-                                     "Middle Blocker",
-                                     "Libero"
-                                   ],
-                                   { include_blank: "Select..." },
-                                   class: "form-select" %>
+                               [
+                                 "Setter",
+                                 "Outside Hitter",
+                                 "Opposite",
+                                 "Middle Blocker",
+                                 "Libero",
+                               ],
+                               { include_blank: "Select..." },
+                               class: "form-select" %>
           </div>
 
           <div class="col-md-2">

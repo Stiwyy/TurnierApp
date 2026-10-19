@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_06_132903) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_19_153037) do
   create_table "games", force: :cascade do |t|
     t.integer "tournament_id", null: false
     t.integer "scoreTeamA"
@@ -25,8 +25,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_06_132903) do
 
   create_table "players", force: :cascade do |t|
     t.integer "team_id", null: false
-    t.string "name"
-    t.string "surname"
+    t.string "first_name"
+    t.string "last_name"
     t.date "date_of_birth"
     t.string "position"
     t.integer "number"
