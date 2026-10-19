@@ -12,59 +12,59 @@
 
 ActiveRecord::Schema[8.1].define(version: 2026_08_06_132903) do
   create_table "games", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.float "duration"
-    t.string "loser"
+    t.integer "tournament_id", null: false
     t.integer "scoreTeamA"
     t.integer "scoreTeamB"
-    t.integer "tournament_id", null: false
-    t.datetime "updated_at", null: false
+    t.float "duration"
     t.string "winner"
+    t.string "loser"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["tournament_id"], name: "index_games_on_tournament_id"
   end
 
   create_table "players", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.date "date_of_birth"
-    t.string "name"
-    t.integer "number"
-    t.string "position"
-    t.string "surname"
     t.integer "team_id", null: false
+    t.string "name"
+    t.string "surname"
+    t.date "date_of_birth"
+    t.string "position"
+    t.integer "number"
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["team_id"], name: "index_players_on_team_id"
   end
 
   create_table "team_games", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.integer "game_id", null: false
     t.integer "team_id", null: false
+    t.integer "game_id", null: false
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_team_games_on_game_id"
     t.index ["team_id"], name: "index_team_games_on_team_id"
   end
 
   create_table "team_tournaments", force: :cascade do |t|
-    t.datetime "created_at", null: false
     t.integer "team_id", null: false
     t.integer "tournament_id", null: false
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["team_id"], name: "index_team_tournaments_on_team_id"
     t.index ["tournament_id"], name: "index_team_tournaments_on_tournament_id"
   end
 
   create_table "teams", force: :cascade do |t|
-    t.datetime "created_at", null: false
     t.string "name"
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "tournaments", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "end_time"
-    t.string "location"
     t.string "name"
     t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "location"
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 

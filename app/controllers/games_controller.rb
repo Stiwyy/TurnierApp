@@ -1,18 +1,17 @@
 # frozen_string_literal: true
 
 class GamesController < ApplicationController
+  before_action :set_tournament
+
   def index
-    @tournament = Tournament.find(params[:tournament_id])
     @games = @tournament.games
   end
 
   def new
-    @tournament = Tournament.find(params[:tournament_id])
     @game = @tournament.games.new
   end
 
   def create
-    @tournament = Tournament.find(params[:tournament_id])
     @game = @tournament.games.new(game_params)
 
     team_a = @tournament.teams.find(params[:game][:team_a_id])
@@ -51,5 +50,9 @@ class GamesController < ApplicationController
       :scoreTeamB,
       :duration
     )
+  end
+
+  def set_tournament
+    @tournament = Tournament.find(params[:tournament_id])
   end
 end
