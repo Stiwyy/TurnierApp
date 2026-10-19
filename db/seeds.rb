@@ -53,8 +53,8 @@ teams = team_names.map do |name|
 
   12.times do |i|
     Player.create!(
-      name: first_names.sample,
-      surname: last_names.sample,
+      first_name: first_names.sample,
+      last_name: last_names.sample,
       number: jersey_numbers[i],
       position: positions.sample,
       date_of_birth: rand(Date.new(1995, 1, 1)..Date.new(2007, 12, 31)),
@@ -78,8 +78,8 @@ teams.each_slice(2) do |team_a, team_b|
 
   game = Game.create!(
     tournament_id: tournament.id,
-    scoreTeamA: score_a,
-    scoreTeamB: score_b,
+    score_team_a: score_a,
+    score_team_b: score_b,
     winner: score_a > score_b ? team_a.name : team_b.name,
     loser: score_a > score_b ? team_b.name : team_a.name,
     duration: rand(60.0..120.0).round(1)

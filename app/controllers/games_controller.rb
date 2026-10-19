@@ -25,7 +25,7 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:scoreTeamA, :scoreTeamB, :duration)
+    params.require(:game).permit(:score_team_a, :score_team_b, :duration)
   end
 
   def find_team(key)

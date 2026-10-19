@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_19_153037) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_19_154335) do
   create_table "games", force: :cascade do |t|
     t.integer "tournament_id", null: false
-    t.integer "scoreTeamA"
-    t.integer "scoreTeamB"
+    t.integer "score_team_a"
+    t.integer "score_team_b"
     t.float "duration"
     t.string "winner"
     t.string "loser"

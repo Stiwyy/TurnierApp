@@ -8,7 +8,7 @@ class Game < ApplicationRecord
 
   attr_reader :team_a, :team_b
 
-  validates :scoreTeamA, :scoreTeamB, presence: true, numericality: { only_integer: true }
+  validates :score_team_a, :score_team_b, presence: true, numericality: { only_integer: true }
   validates :team_a, :team_b, presence: true
   validate :cannot_end_in_tie
 
@@ -23,7 +23,7 @@ class Game < ApplicationRecord
   private
 
   def tie?
-    scoreTeamA.present? && scoreTeamA == scoreTeamB
+    score_team_a.present? && score_team_a == score_team_b
   end
 
   def cannot_end_in_tie
@@ -31,10 +31,10 @@ class Game < ApplicationRecord
   end
 
   def determine_result
-    return unless team_a && team_b && scoreTeamA.present? && scoreTeamB.present?
+    return unless team_a && team_b && score_team_a.present? && score_team_b.present?
     return if tie?
 
-    winner_team, loser_team = scoreTeamA > scoreTeamB ? [ team_a, team_b ] : [ team_b, team_a ]
+    winner_team, loser_team = score_team_a > score_team_b ? [ team_a, team_b ] : [ team_b, team_a ]
     self.winner = winner_team.name
     self.loser = loser_team.name
   end

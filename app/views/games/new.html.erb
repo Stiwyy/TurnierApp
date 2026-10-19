@@ -11,31 +11,31 @@
             <div class="mb-3">
               <%= form.label :team_a_id, "Team A" %>
               <%= form.collection_select :team_a_id,
-                                         @tournament.teams,
-                                         :id,
-                                         :name,
-                                         {},
-                                         class: "form-select" %>
+                                     @tournament.teams,
+                                     :id,
+                                     :name,
+                                     {},
+                                     class: "form-select" %>
             </div>
 
             <div class="mb-3">
               <%= form.label :team_b_id, "Team B" %>
               <%= form.collection_select :team_b_id,
-                                         @tournament.teams,
-                                         :id,
-                                         :name,
-                                         {},
-                                         class: "form-select" %>
+                                     @tournament.teams,
+                                     :id,
+                                     :name,
+                                     {},
+                                     class: "form-select" %>
             </div>
 
             <div class="mb-3">
-              <%= form.label :scoreTeamA %>
-              <%= form.number_field :scoreTeamA, class: "form-control" %>
+              <%= form.label :score_team_a %>
+              <%= form.number_field :score_team_a, class: "form-control" %>
             </div>
 
             <div class="mb-3">
-              <%= form.label :scoreTeamB %>
-              <%= form.number_field :scoreTeamB, class: "form-control" %>
+              <%= form.label :score_team_b %>
+              <%= form.number_field :score_team_b, class: "form-control" %>
             </div>
 
             <div class="mb-3">
