@@ -13,7 +13,8 @@ class GamesController < ApplicationController
 
   def create
     @game = @tournament.games.new(game_params)
-    @game.assign_teams(find_team(:team_a_id), find_team(:team_b_id))
+    @game.team_a = find_team(:team_a_id)
+    @game.team_b = find_team(:team_b_id)
 
     if @game.save
       redirect_to tournament_games_path(@tournament), notice: "Game created successfully."
@@ -25,7 +26,7 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:score_team_a, :score_team_b, :duration)
+    params.require(:game).permit(:score_team_a, :score_team_b, :duration, :team_a_id, :team_b_id)
   end
 
   def find_team(key)

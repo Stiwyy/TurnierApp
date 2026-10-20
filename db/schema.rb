@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_19_154335) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_20_120000) do
   create_table "games", force: :cascade do |t|
     t.integer "tournament_id", null: false
     t.integer "score_team_a"
@@ -20,6 +20,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_19_154335) do
     t.string "loser"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "team_a_id", null: false
+    t.integer "team_b_id", null: false
+    t.index ["team_a_id"], name: "index_games_on_team_a_id"
+    t.index ["team_b_id"], name: "index_games_on_team_b_id"
     t.index ["tournament_id"], name: "index_games_on_tournament_id"
   end
 
@@ -33,15 +37,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_19_154335) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["team_id"], name: "index_players_on_team_id"
-  end
-
-  create_table "team_games", force: :cascade do |t|
-    t.integer "team_id", null: false
-    t.integer "game_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["game_id"], name: "index_team_games_on_game_id"
-    t.index ["team_id"], name: "index_team_games_on_team_id"
   end
 
   create_table "team_tournaments", force: :cascade do |t|
@@ -68,10 +63,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_19_154335) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "games", "teams", column: "team_a_id"
+  add_foreign_key "games", "teams", column: "team_b_id"
   add_foreign_key "games", "tournaments"
   add_foreign_key "players", "teams"
-  add_foreign_key "team_games", "games"
-  add_foreign_key "team_games", "teams"
   add_foreign_key "team_tournaments", "teams"
   add_foreign_key "team_tournaments", "tournaments"
 end

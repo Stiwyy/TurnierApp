@@ -1,5 +1,4 @@
 Player.destroy_all
-TeamGame.destroy_all
 Game.destroy_all
 TeamTournament.destroy_all
 Team.destroy_all
@@ -82,16 +81,8 @@ teams.each_slice(2) do |team_a, team_b|
     score_team_b: score_b,
     winner: score_a > score_b ? team_a.name : team_b.name,
     loser: score_a > score_b ? team_b.name : team_a.name,
-    duration: rand(60.0..120.0).round(1)
-  )
-
-  TeamGame.create!(
-    team: team_a,
-    game: game
-  )
-
-  TeamGame.create!(
-    team: team_b,
-    game: game
+    duration: rand(60.0..120.0).round(1),
+    team_a: team_a,
+    team_b: team_b
   )
 end

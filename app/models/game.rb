@@ -3,10 +3,8 @@
 class Game < ApplicationRecord
   belongs_to :tournament
 
-  has_many :team_games, dependent: :destroy
-  has_many :teams, through: :team_games
-
-  attr_reader :team_a, :team_b
+  belongs_to :team_a, class_name: "Team"
+  belongs_to :team_b, class_name: "Team"
 
   validates :score_team_a, :score_team_b, presence: true, numericality: { only_integer: true }
   validates :team_a, :team_b, presence: true
@@ -14,11 +12,6 @@ class Game < ApplicationRecord
 
   before_validation :determine_result
 
-  def assign_teams(team_a, team_b)
-    @team_a = team_a
-    @team_b = team_b
-    self.teams = [ team_a, team_b ].compact
-  end
 
   private
 
@@ -28,6 +21,7 @@ class Game < ApplicationRecord
 
   def cannot_end_in_tie
     errors.add(:base, "A game cannot end in a tie.") if tie?
+    errors.add(:team_a, "and Team B must be different") if team_a_id.present? && team_a_id == team_b_id
   end
 
   def determine_result
