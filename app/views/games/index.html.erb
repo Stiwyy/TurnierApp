@@ -16,13 +16,6 @@
   </thead>
 
   <tbody>
-    <% @tournament.games.each do |game| %>
-      <tr>
-        <td><%= game.winner %></td>
-        <td><%= game.loser %></td>
-        <td><%= "#{game.score_team_a} - #{game.score_team_b}" %></td>
-        <td><%= "#{game.duration} min" %></td>
-      </tr>
-    <% end %>
+    <%= render partial: "games/game", collection: @games, as: :game %>
   </tbody>
 </table>
